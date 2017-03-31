@@ -7,7 +7,8 @@ namespace WantHave
     {
 
     #region StaticVars
-    private static int lastItemID = 0;
+
+    private static int lastItemID = 14;
 
     #endregion
 

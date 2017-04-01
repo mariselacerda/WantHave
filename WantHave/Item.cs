@@ -2,13 +2,15 @@
 
 namespace WantHave
 {
-
-    public Class Item
+    enum ItemRequestType { Want, Borrow, Give }//Wanted, Borrow , Giving Away
+    enum ItemCategory { Books, Hardware, Furniture, Food, Gardening, Pets, Kids, Kitchen, Bathroom, Tools }// list of types of items supported by app
+    
+    class Item
     {
 
     #region StaticVars
 
-    private static int lastItemID = 14;
+    private static int lastItemID = 0;
 
     #endregion
 
@@ -19,10 +21,8 @@ namespace WantHave
 
     public int ItemID { get; private set}
     public string ItemName { get; set; }
-    public enum ItemCategory { Books, Hardware, Furniture, Food, Gardening, Pets, Kids, Kitchen, Bathroom, Tools }// list of types of items supported by app
-    public string ItemExpiration { get; set; } //expecting to store date and time in this string
     public byte ItemStatus { get; private set; } //Availability of item 0=Not Available, 1 = Available
-    public enum ItemRequestType { Want, Borrow, Give }//Wanted, Borrow , Giving Away
+    public string ItemExpiration { get; set; } //expecting to store date and time in this string
     public string ItemDescription { get; set; } //text
     public string ItemImage { get; set; } //future: image file in blob storage     
     #endregion

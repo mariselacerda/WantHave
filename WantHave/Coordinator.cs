@@ -58,6 +58,12 @@ namespace WantHave
 
         }
 
+        public static Offer CreateOffer()
+        {
+            //todo: Create Offer with item and post to db
+            var offer = new Offer; 
+            return offer; 
+        }
         public static void NewRequest()
         {
 

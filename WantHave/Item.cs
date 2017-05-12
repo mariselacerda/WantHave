@@ -32,7 +32,7 @@ namespace WantHave
     public string ItemImage { get; set; } //future: image file in blob storage   
     public ItemCategories ItemCategory { get; set; } 
     
-    public virtual ICollection<Request> Request { get; set; }
+    public virtual ICollection<Offer> Offers { get; set; }
     #endregion
 
     #region Constructor

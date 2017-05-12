@@ -10,7 +10,7 @@ namespace WantHave
 {
     public enum OfferTypes { Give, Sell }
     public enum OfferStatuses { Active, Closed }
-    class Offer
+    public class Offer
     {
 
         [Key]

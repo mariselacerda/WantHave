@@ -1,16 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WantHave
 {
-    enum ItemRequestType { Want, Borrow, Give }//Wanted, Borrow , Giving Away
-    enum ItemCategory { Books, Hardware, Furniture, Food, Gardening, Pets, Kids, Kitchen, Bathroom, Tools }// list of types of items supported by app
+    public enum ItemCategories { Books, Hardware, Furniture, Food, Gardening, Pets, Kids, Kitchen, Bathroom, Tools }// list of types of items supported by app
+    public enum ItemAvailability { Available, NotAvailable}
     
-    class Item
+    public class Item
     {
 
     #region StaticVars
 
-    private static int lastItemID = 0;
+    //private static int lastItemID = 0;
 
     #endregion
 
@@ -18,35 +24,34 @@ namespace WantHave
     ///<Description>
     ///Item Class is the main class for defining, creating, and managing items
     ///</Description>
-
-    public int ItemID { get; private set}
+    [Key]
+    public int ItemID { get; set; }
     public string ItemName { get; set; }
-    public byte ItemStatus { get; private set; } //Availability of item 0=Not Available, 1 = Available
-    public string ItemExpiration { get; set; } //expecting to store date and time in this string
+    public DateTime ItemExpiration { get; set; } //expecting to store date and time in this string
     public string ItemDescription { get; set; } //text
-    public string ItemImage { get; set; } //future: image file in blob storage     
+    public string ItemImage { get; set; } //future: image file in blob storage   
+    public ItemCategories ItemCategory { get; set; } 
+    
+    public virtual ICollection<Request> Request { get; set; }
     #endregion
 
     #region Constructor
-    public Item()
-    {
-        ItemID = ++lastItemID; 
-    }
+   // public Item()
+   // {
+   //     ItemID = ++lastItemID; 
+   // }
 
     #endregion
 
 
     #region Functions
 
-    public void SetItemName (string nameOfItem) {
-        ItemName = nameOfItem;
-    }
-
-    public void SetItemExpiration(string date) {
+    public void ChangeItemExpiration(DateTime date)
+    {
         ItemExpiration = date;
     }
 
-
+        
 
     
 

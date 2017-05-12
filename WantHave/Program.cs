@@ -21,7 +21,7 @@ namespace WantHave
             {
                 switch (option)
                 {
-                    case "1":
+                    case 1: //POST A NEW REQUST SELECTED, collect all item info
                         var requesttypes = Enum.GetNames(typeof(ItemRequestType));
                         Console.WriteLine("Select a request type:");
                         for (var i = 0; i<(requesttypes.Length-1); i++)
@@ -35,14 +35,16 @@ namespace WantHave
                         string itemdescription = Console.ReadLine();
                         Console.WriteLine("Please provide an item expiration:");
                         string itemexpiration = Console.ReadLine();
+                        Coordinator.CreateItem(itemname, itemdescription, itemexpiration);
+                        Console.WriteLine($ "Your New Item Number is:" )
                         break;
-                    case "2":
+                    case 2:
                         //collect item information
                         break;
-                    case "3";
+                    case 3:
                         //collect item information
                         break;
-                    case "4";
+                    case 4:
                         return;
 
                 }

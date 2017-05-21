@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WantHave
 {
-    public enum OfferTypes { Give, Sell }
+    public enum OfferTypes { Give }
     public enum OfferStatuses { Active, Closed }
     public class Offer
     {
@@ -18,6 +18,8 @@ namespace WantHave
         public string OffererName { get; set; }
         public string OffererEmail { get; set; } //expecting to store date and time in this string
         public DateTime OfferExpiration { get; set; } //expecting to store date and time in this string 
+        public OfferTypes OfferType { get; set; }
+        public OfferStatuses OfferStatus { get; set}
         [ForeignKey("Item")]
         public int ItemId { get; set; }
         public virtual Item Item { get; set; } //"virtual" sets up a foriegn key column in the transaction table and a relationship between a request and an item

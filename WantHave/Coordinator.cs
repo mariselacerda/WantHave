@@ -58,10 +58,12 @@ namespace WantHave
 
         }
 
-        public static Offer CreateOffer()
+        public static Offer CreateOffer(string offername, string offeremail, DateTime offerexpiration, int itemid, OfferTypes offertype)
         {
-            //todo: Create Offer with item and post to db
-            var offer = new Offer; 
+
+            var offer = new Offer { OfferStatus= 0, OfferType = (OfferTypes)offertype, OffererName = offername, OffererEmail = offeremail, OfferExpiration = offerexpiration, ItemId = itemid };
+            db.Offers.Add(offer);
+            db.SaveChanges(); 
             return offer; 
         }
         public static void NewRequest()
@@ -75,7 +77,9 @@ namespace WantHave
         }
         public static List<Item> GetAllItems()
         {
-            return Items;
+            //To Do; get list of items from db
+            List<Item> items = new List<Item>(); 
+            return items;
         }
 
         public static Item GetActiveItems()
